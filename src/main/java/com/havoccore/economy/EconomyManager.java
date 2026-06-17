@@ -54,3 +54,8 @@ public class EconomyManager {
         try { balanceConfig.save(configFile); } catch (IOException e) { e.printStackTrace(); }
     }
 }
+public void addBalance(java.util.UUID uuid, long amount) {
+        long currentBalance = balances.getOrDefault(uuid, 0L);
+        balances.put(uuid, currentBalance + amount);
+        saveBalances();
+    }
