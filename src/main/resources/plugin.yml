@@ -1,0 +1,12 @@
+name: HavocCore
+version: 1.0
+main: com.havoccore.HavocCore
+api-version: 1.21
+description: Core Anarchy Economy system using Havocks currency.
+author: Mano
+
+commands:
+  balance:
+    description: Check your current balance of Havocks.
+    aliases: [bal, money, hc]
+    usage: /balance [player]
