@@ -17,7 +17,7 @@ public final class HavocCore extends JavaPlugin {
         this.auctionManager = new AuctionManager(this);
 
         // Start background tasks (Hourly payout loop)
-        Bukkit.getScheduler().runTaskTaskTimer(this, () -> {
+        Bukkit.getScheduler().runTaskTimer(this, () -> {
             Bukkit.getOnlinePlayers().forEach(player -> {
                 economyManager.addBalance(player.getUniqueId(), 500);
                 player.sendMessage("§a[HavocEconomy] You received your hourly 500 Havocks!");
