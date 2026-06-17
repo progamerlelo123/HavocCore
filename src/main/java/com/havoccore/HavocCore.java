@@ -1,5 +1,6 @@
 package com.havoccore;
 
+import com.havoccore.commands.TradeCommands;
 import com.havoccore.economy.AuctionManager;
 import com.havoccore.economy.EconomyManager;
 import com.havoccore.trade.TradeManager;
@@ -18,6 +19,11 @@ public final class HavocCore extends JavaPlugin {
         this.economyManager = new EconomyManager(this);
         this.auctionManager = new AuctionManager(this);
         this.tradeManager = new TradeManager(this);
+
+        // Register Command Executor
+        TradeCommands tradeCommands = new TradeCommands(this);
+        getCommand("ah").setExecutor(tradeCommands);
+        getCommand("trade").setExecutor(tradeCommands);
 
         // Start background tasks (Hourly payout loop)
         Bukkit.getScheduler().runTaskTimer(this, () -> {
